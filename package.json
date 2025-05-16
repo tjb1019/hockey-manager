@@ -1,0 +1,13 @@
+{
+  "name": "hockey-manager",
+  "private": true,
+  "workspaces": ["api", "web"],
+  "dependencies": {
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "typescript": "~5.7.2",
+    "@types/node": "^22.13.5"
+  }
+}
