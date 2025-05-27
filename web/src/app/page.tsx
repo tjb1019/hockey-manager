@@ -1,10 +1,14 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
-export default function Home() {
+export default async function Home() {
+  const res = await fetch('http://localhost:5000/api/ping');
+  const pong = await res.json();
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <p>{pong.data}</p>
         <Image
           className={styles.logo}
           src="/next.svg"
