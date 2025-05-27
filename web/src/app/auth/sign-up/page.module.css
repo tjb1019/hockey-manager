@@ -1,0 +1,7 @@
+.root {
+  border: 1px solid lightcyan;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
