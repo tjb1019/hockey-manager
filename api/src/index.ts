@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import http, { type Server } from 'node:http';
 
 import app from './app';

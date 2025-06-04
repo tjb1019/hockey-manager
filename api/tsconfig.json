@@ -1,5 +1,5 @@
 {
-  "extends": ["@tsconfig/node23/tsconfig.json", "../tsconfig.json"],
+  "extends": ["@tsconfig/node23/tsconfig.json", "../tsconfig.base.json"],
   "include": ["./src/**/*.ts"],
   "exclude": ["dist"],
   "compilerOptions": {

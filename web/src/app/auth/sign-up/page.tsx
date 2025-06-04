@@ -1,4 +1,4 @@
-import { signup } from "@/app/actions/auth";
+import { signup } from '@/app/actions/auth';
 import styles from './page.module.css';
 
 export default function SignUpPage() {
