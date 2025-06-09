@@ -1,0 +1,24 @@
+.root {
+  padding-inline: 20px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--mantine-shadow-md);
+
+  .logo {
+    margin-right: 16px;
+    position: relative;
+    height: 80%;
+  }
+
+  .navItem {
+    border-bottom: 2px solid transparent;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &.active {
+      border-color: var(--brand-color);
+    }
+  }
+}

@@ -11,9 +11,30 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as StandingsImport } from './routes/standings'
+import { Route as ProspectsImport } from './routes/prospects'
+import { Route as LineupBuilderImport } from './routes/lineup-builder'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const StandingsRoute = StandingsImport.update({
+  id: '/standings',
+  path: '/standings',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProspectsRoute = ProspectsImport.update({
+  id: '/prospects',
+  path: '/prospects',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LineupBuilderRoute = LineupBuilderImport.update({
+  id: '/lineup-builder',
+  path: '/lineup-builder',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -32,6 +53,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/lineup-builder': {
+      id: '/lineup-builder'
+      path: '/lineup-builder'
+      fullPath: '/lineup-builder'
+      preLoaderRoute: typeof LineupBuilderImport
+      parentRoute: typeof rootRoute
+    }
+    '/prospects': {
+      id: '/prospects'
+      path: '/prospects'
+      fullPath: '/prospects'
+      preLoaderRoute: typeof ProspectsImport
+      parentRoute: typeof rootRoute
+    }
+    '/standings': {
+      id: '/standings'
+      path: '/standings'
+      fullPath: '/standings'
+      preLoaderRoute: typeof StandingsImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -39,32 +81,47 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/lineup-builder': typeof LineupBuilderRoute
+  '/prospects': typeof ProspectsRoute
+  '/standings': typeof StandingsRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/lineup-builder': typeof LineupBuilderRoute
+  '/prospects': typeof ProspectsRoute
+  '/standings': typeof StandingsRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/lineup-builder': typeof LineupBuilderRoute
+  '/prospects': typeof ProspectsRoute
+  '/standings': typeof StandingsRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/lineup-builder' | '/prospects' | '/standings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/lineup-builder' | '/prospects' | '/standings'
+  id: '__root__' | '/' | '/lineup-builder' | '/prospects' | '/standings'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LineupBuilderRoute: typeof LineupBuilderRoute
+  ProspectsRoute: typeof ProspectsRoute
+  StandingsRoute: typeof StandingsRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LineupBuilderRoute: LineupBuilderRoute,
+  ProspectsRoute: ProspectsRoute,
+  StandingsRoute: StandingsRoute,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +134,23 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/lineup-builder",
+        "/prospects",
+        "/standings"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/lineup-builder": {
+      "filePath": "lineup-builder.tsx"
+    },
+    "/prospects": {
+      "filePath": "prospects.tsx"
+    },
+    "/standings": {
+      "filePath": "standings.tsx"
     }
   }
 }

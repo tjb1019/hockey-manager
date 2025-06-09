@@ -10,15 +10,16 @@ import '@mantine/notifications/styles.css';
 // local styles
 import styles from './App.module.css';
 import { Outlet } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+import { Nav } from './components/nav/nav';
+import theme from './styles/theme';
 
 function AppCore() {
   return (
     <>
+      <Nav />
       <main className={styles.appContent}>
         <Outlet />
       </main>
-      <TanStackRouterDevtools />
     </>
   );
 }
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <MantineProvider>
+      <MantineProvider theme={theme}>
         <AppCore />
       </MantineProvider>
     </QueryClientProvider>
