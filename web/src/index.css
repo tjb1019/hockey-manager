@@ -1,0 +1,32 @@
+body {
+  --text-color: #222;
+  --background-color: rgba(255, 255, 255, 0.95);
+  --brand-color: orange;
+  
+  font-family: 'Tomorrow', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  &.dark {
+    --text-color: rgba(255, 255, 255, 0.87);
+    --background-color: #222;
+    
+    color-scheme: dark;
+  }
+}
